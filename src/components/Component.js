@@ -19,7 +19,8 @@ export default class Component {
         data.length
           ? data.map(m => {
             const id = m.id
-            return Component.folderItemView(m, { isTop, index, id, isCollect: isCollect || collectIds && collectIds.includes(id) })
+            const i = m.index
+            return Component.folderItemView(m, { isTop, index: isTop ? i : index, id, isCollect: isCollect || collectIds && collectIds.includes(id) })
           })
           : `
             <li class="no-data">
@@ -37,7 +38,7 @@ export default class Component {
     const { title, url, desc, tag } = data
     
     return `
-      <li class="bookmark-li">
+      <li class="bookmark-li" data-id="${id}">
         <div class="bookmark-item" data-url="${url}">
           <div class="bookmark-item-bg unclick"></div>
           <img

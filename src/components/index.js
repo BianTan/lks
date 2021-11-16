@@ -11,6 +11,7 @@ export default class Init {
     this.topWrapper.classList.add('container')
     this.listWrapper = document.createElement('div')
     this.listWrapper.classList.add('container')
+    this.listWrapper.classList.add('data-list')
   }
   
   init() {
@@ -31,7 +32,7 @@ export default class Init {
     this.list = new ListView({
       container: this.listWrapper,
       data: this.data,
-      closed: false,
+      closed: true,
       collectIdList: this.collectIdList
     })
   }
@@ -45,6 +46,6 @@ export default class Init {
   
   bindEvent() {
     this.top.bindEvent()
-    this.list.bindEvent()
+    this.list.bindEvent(this.top)
   }
 }

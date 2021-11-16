@@ -2,13 +2,13 @@ import Component from '../Component'
 import FolderView from '../FolderView'
 
 export default class ListView extends Component{
-  
   constructor(options) {
     super()
     this.container = options.container
     this.data = options.data || []
     this.closed = options.closed
     this.collectIdList = options.collectIdList || {}
+    this.topInstance = null
   }
   
   // 渲染列表
@@ -26,7 +26,8 @@ export default class ListView extends Component{
   }
   
   // 绑定事件
-  bindEvent() {
+  bindEvent(instance) {
+    this.topInstance = instance
     this.container.addEventListener('click', this.handleContainerClick.bind(this), false)
   }
   
@@ -45,8 +46,9 @@ export default class ListView extends Component{
     } else if (classList.includes('icon')) { // 点击收藏按钮
       const index = Number(target.dataset.index)
       const id = Number(target.dataset.id)
-      FolderView.addCollect(index, id)
+      const { data: collectList, isDelete } = FolderView.switchCollect(index, id)
+      this.topInstance && this.topInstance.render(collectList)
+      FolderView.updateItemDOM(target.parentNode.parentNode, isDelete)
     }
   }
-  
 }
