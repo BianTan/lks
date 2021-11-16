@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --body-bg: #fff;
+  --header-btn-color: rgba(24, 144, 255, .8);
+  --item-border: #eee;
+  --item-border-hover: rgba(24, 144, 255, .32);
+  --item-bg: #fff;
+  --item-shadow: rgba(24, 144, 255, .32);
+  --header-font: #666;
+  --header-bg-hover: rgba(24, 144, 255, .12);
+  --item-title: #333;
+  --item-url: #777;
+  --folder-botton: #eee;
+}
+body {
+  overflow-y: scroll;
+  background-color: var(--body-bg);
+  font-family: system-ui, "PingFang SC", STHeiti, sans-serif;
+  font-size: 75%;
+}
+
+#app {
+  padding: 48px 0;
+  .container {
+    width: 1280px;
+    margin: 0 auto;
+  }
+  .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    font-size: 14px;
+  }
+  .unclick {
+    pointer-events: none;
+  }
+  .click {
+    pointer-events: auto;
+  }
+}

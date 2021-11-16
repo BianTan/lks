@@ -1,0 +1,177 @@
+.bookmark-folder {
+  border-bottom: 1px solid var(--folder-botton);
+  .bookmark-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 12px 0;
+    border-radius: 8px;
+    padding: 18px;
+    transition: all .3s ease;
+    background-color: var(--item-bg);
+    color: var(--header-font);
+    &:hover{
+      background-color: var(--header-bg-hover);
+    }
+    .btn-collapse {
+      color: #999;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-top: 6px solid var(--header-btn-color);
+      margin-right: 8px;
+      transform: translateY(3px);
+      user-select: none;
+      transition: all .3s ease;
+      &.btn-collapse--act {
+        transform: rotate(-90deg) translateY(3px);
+      }
+    }
+  }
+  .bookmark-ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 15px;
+    .no-data {
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 12px;
+      margin-bottom: 24px;
+      .empty {
+        width: 60px;
+        height: 60px;
+      }
+      .tip {
+        color: #999;
+        font-size: 13px;
+        margin-top: 12px;
+      }
+    }
+    .bookmark-li {
+      width: 25%;
+      position: relative;
+      transition: all ease .5s;
+      &:hover {
+        z-index: 6;
+      }
+      .bookmark-item {
+        position: relative;
+        user-select: none;
+        z-index: 1;
+        margin: 12px 10px;
+        padding: 32px 24px 16px;
+        border: 1px solid var(--item-border);
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all .3s ease;
+        .bookmark-item-bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          border-radius: 14px;
+          background-color: var(--item-bg);
+        }
+        .icon-top {
+          position: absolute;
+          top: 0;
+          left: 22px;
+        }
+        .bookmark-item-title {
+          display: flex;
+          align-items: center;
+          user-select: none;
+          .icon {
+            width: 24px;
+            height: 24px;
+            padding: 3px;
+            margin-right: 16px;
+            border-radius: 100%;
+            box-sizing: border-box;
+            border: 1px solid var(--item-border);
+          }
+          .ellipsis {
+            font-size: 15px;
+            color: var(--item-title);
+          }
+        }
+        .bookmark-item-url {
+          color: var(--item-url);
+          margin-top: 14px;
+          user-select: none;
+        }
+        .bookmark-info {
+          display: flex;
+          margin-top: 14px;
+          justify-content: space-between;
+          p {
+            color: #999;
+          }
+          .icon {
+            width: 15px;
+            height: 15px;
+            transition: all .5s ease;
+            &:hover{
+              transform: rotate(144deg);
+            }
+          }
+          .del-icon {
+            width: 15px;
+            height: 15px;
+            opacity: 0;
+          }
+        }
+        &::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 14px;
+          top: 0;
+          left: 0;
+          filter: blur(0);
+          z-index: -2;
+          transition: all ease .3s;
+          background-color: var(--item-shadow);
+        }
+        &:hover {
+          transform: translateY(-8px) scale(1.03);
+          border-color: var(--item-border-hover);
+          &::before{
+            transform: translateY(10px) scaleX(0.8);
+            filter: blur(8px);
+          }
+          .del-icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  #bookmark, #collect, #search-result {
+    width: 90%;
+  }
+  .bookmark-li {
+    width: 33.33%;
+  }
+}
+@media (max-width: 1024px) {
+  .bookmark-li {
+    width: 50%;
+  }
+}
+@media (max-width: 640px) {
+  .bookmark-li {
+    width: 100%;
+  }
+}

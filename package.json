@@ -1,0 +1,17 @@
+{
+  "name": "lks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.43.4",
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
