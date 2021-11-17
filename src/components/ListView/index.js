@@ -46,8 +46,11 @@ export default class ListView extends Component{
       const index = Number(target.dataset.index)
       const id = Number(target.dataset.id)
       const header = target.dataset.header
+      // 更新收藏数据
       const { data: collectList, isDelete } = FolderView.switchCollect({ index, id, header })
+      // 重新渲染收藏文件夹
       this.topInstance && this.topInstance.render(collectList)
+      // 更新卡片收藏图标
       FolderView.updateItemDOM(target.parentNode.parentNode, isDelete)
     }
   }

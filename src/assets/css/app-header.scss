@@ -1,0 +1,95 @@
+.app-header {
+  margin-bottom: 72px;
+  .header-top {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    height: 44px;
+    position: relative;
+    .form-item {
+      border-radius: 40px;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 44px;
+      height: 44px;
+      transition: all .3s ease;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      &.mode--open, &:hover {
+        background-color: #eaeaea;
+      }
+      > svg {
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        opacity: 0;
+        transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        -o-transition: all .3s ease;
+      }
+      > .icon-auto {
+        background: var(--header-btn-color);
+        fill: #f6f6f6;
+        z-index: 3;
+      }
+      > .icon-light {
+        background: #F5D158;
+        fill: #EB8342;
+        z-index: 2;
+      }
+      > .icon-dark {
+        background: #2B3A41;
+        fill: #DAF5F5;
+        z-index: 1;
+      }
+      &.mode--open {
+        height: 120px;
+        svg {
+          opacity: 1;
+        }
+        .icon-light {
+          transform: translateY(calc(100% + 6px));
+          -webkit-transform: translateY(calc(100% + 6px));
+          -moz-transform: translateY(calc(100% + 6px));
+          -ms-transform: translateY(calc(100% + 6px));
+          -o-transform: translateY(calc(100% + 6px));
+        }
+        .icon-dark {
+          transform: translateY(calc(200% + 12px));
+          -webkit-transform: translateY(calc(200% + 12px));
+          -moz-transform: translateY(calc(200% + 12px));
+          -ms-transform: translateY(calc(200% + 12px));
+          -o-transform: translateY(calc(200% + 12px));
+        }
+      }
+    }
+  }
+}
+
+[color-mode=dark] .form-item.mode--open, [color-mode=dark] .form-item:hover {
+  background-color: #414F5F;
+}
+[color-mode=auto] .icon-auto {
+  z-index: 9 !important;
+  opacity: 1 !important;
+}
+[color-mode=light] .icon-light {
+  z-index: 9 !important;
+  opacity: 1 !important;
+}
+[color-mode=dark] .icon-dark {
+  z-index: 9 !important;
+  opacity: 1 !important;
+}

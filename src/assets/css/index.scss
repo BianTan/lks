@@ -15,7 +15,7 @@
     --header-font: #d2d2d2 !important;;
     --header-bg-hover: rgba(34, 34, 34, 0.42) !important;;
     --item-title: #dedede !important;;
-    --item-url: #dfdfdf !important;;
+    --item-desc: #dfdfdf !important;;
     --folder-botton: transparent !important;;
   }
 }
@@ -29,7 +29,7 @@
   --header-font: #666;
   --header-bg-hover: rgba(24, 144, 255, .12);
   --item-title: #333;
-  --item-url: #777;
+  --item-desc: #777;
   --folder-botton: #eee;
 }
 [color-mode=dark] {
@@ -42,7 +42,7 @@
   --header-font: #d2d2d2;
   --header-bg-hover: rgba(34, 34, 34, 0.42);
   --item-title: #dedede;
-  --item-url: #dfdfdf;
+  --item-desc: #dfdfdf;
   --folder-botton: transparent;
 }
 
