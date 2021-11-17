@@ -11,13 +11,11 @@ import { getStorage } from './utils'
   
   function init() {
     const collectList = getStorage('collectList', { isJson: true, defaultValue: '[]' })
-    const collectIdList = getStorage('collectIdList', { isJson: true, defaultValue: '{}' })
     const container = document.querySelector('#app')
     const app = new Init({
       el: container,
       data: dataList,
-      collectList,
-      collectIdList
+      collectList
     })
     app.init()
   }

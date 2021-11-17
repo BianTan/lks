@@ -2,11 +2,10 @@ import FolderView from './FolderView'
 import ListView from './ListView'
 
 export default class Init {
-  constructor({ el, data, collectList, collectIdList }) {
+  constructor({ el, data, collectList }) {
     this.el = el
     this.data = data || []
     this.collectList = collectList || []
-    this.collectIdList = collectIdList || {}
     this.topWrapper = document.createElement('div')
     this.topWrapper.classList.add('container')
     this.listWrapper = document.createElement('div')
@@ -33,7 +32,7 @@ export default class Init {
       container: this.listWrapper,
       data: this.data,
       closed: true,
-      collectIdList: this.collectIdList
+      collectList: this.collectList
     })
   }
   

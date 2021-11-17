@@ -7,7 +7,7 @@ import empty from '@/assets/images/empty.svg'
 
 export default class Component {
   
-  static folderView ({ title = '', data, isTop = false, closed = false, index, isCollect = false, collectIds = [] } = {}) {
+  static folderView ({ title = '', data, isTop = false, closed = false, isCollect = false, collectIds = [] } = {}) {
     return `
       <div class="bookmark-folder">
         <div class="bookmark-header">
@@ -19,8 +19,7 @@ export default class Component {
         data.length
           ? data.map(m => {
             const id = m.id
-            const i = m.index
-            return Component.folderItemView(m, { isTop, index: isTop ? i : index, id, isCollect: isCollect || collectIds && collectIds.includes(id) })
+            return Component.folderItemView(m, { isTop, id, isCollect: isCollect || collectIds && collectIds.includes(id), header: title })
           })
           : `
             <li class="no-data">
@@ -34,8 +33,8 @@ export default class Component {
     `.split(',').join('')
   }
   
-  static folderItemView (data, { isTop = false, index = 0, id = 0, isCollect = false }) {
-    const { title, url, desc, tag } = data
+  static folderItemView (data, { isTop = false, id = 0, isCollect = false, header = '' }) {
+    const { title, url, desc, tag, header: dataHeader } = data
     
     return `
       <li class="bookmark-li" data-id="${id}">
@@ -47,7 +46,7 @@ export default class Component {
             alt=""
           >
           <div class="bookmark-item-title unclick">
-            <img src="" class="icon" alt="">
+            <img src="https://www.google.com/s2/favicons?domain=${url}" class="icon" alt="">
             <p class="ellipsis">${title}</p>
           </div>
           <p class="bookmark-item-url ellipsis unclick">
@@ -57,8 +56,8 @@ export default class Component {
             <p class="tag">${tag}</p>
             <img
               class="icon click ${isTop ? 'del-icon' : 'icon-collect'}"
-              data-index="${index}"
               data-id="${id}"
+              data-header="${isTop ? dataHeader : header}"
               src="${isTop ? del : isCollect ? collected : collect}"
               alt=""
             >

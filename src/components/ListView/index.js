@@ -7,19 +7,18 @@ export default class ListView extends Component{
     this.container = options.container
     this.data = options.data || []
     this.closed = options.closed
-    this.collectIdList = options.collectIdList || {}
+    this.collectList = options.collectList || []
     this.topInstance = null
   }
   
   // 渲染列表
   render() {
-    this.data.forEach((f, index) => {
-      const collectIds = this.collectIdList[index] || []
+    const collectIds = this.collectList.map(m => m.id)
+    this.data.forEach(f => {
       this.container.innerHTML += Component.folderView({
         title: f.title,
         data: f.items,
         closed: this.closed,
-        index,
         collectIds
       })
     })
@@ -46,7 +45,8 @@ export default class ListView extends Component{
     } else if (classList.includes('icon')) { // 点击收藏按钮
       const index = Number(target.dataset.index)
       const id = Number(target.dataset.id)
-      const { data: collectList, isDelete } = FolderView.switchCollect(index, id)
+      const header = target.dataset.header
+      const { data: collectList, isDelete } = FolderView.switchCollect({ index, id, header })
       this.topInstance && this.topInstance.render(collectList)
       FolderView.updateItemDOM(target.parentNode.parentNode, isDelete)
     }
