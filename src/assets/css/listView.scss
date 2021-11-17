@@ -103,14 +103,12 @@
             color: var(--item-title);
           }
         }
-        .bookmark-item-url {
-          color: var(--item-url);
-          margin-top: 14px;
-          user-select: none;
+        .bookmark-item-desc {
+          color: var(--item-desc);
+          margin: 14px 0;
         }
         .bookmark-info {
           display: flex;
-          margin-top: 14px;
           justify-content: space-between;
           p {
             color: #999;

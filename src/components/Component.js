@@ -49,10 +49,10 @@ export default class Component {
             <img src="https://www.google.com/s2/favicons?domain=${url}" class="icon" alt="">
             <p class="ellipsis">${title}</p>
           </div>
-          <p class="bookmark-item-url ellipsis unclick">
+          <p class="bookmark-item-desc ellipsis unclick">
             ${desc}
           </p>
-          <div class="bookmark-info unclick">
+          <div class="bookmark-info">
             <p class="tag">${tag}</p>
             <img
               class="icon click ${isTop ? 'del-icon' : 'icon-collect'}"
