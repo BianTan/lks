@@ -3,7 +3,7 @@
 链接数据来自：[https://xiangjianan.gitee.io/lks/](https://xiangjianan.gitee.io/lks/)  
 感谢 B 站 UP -LKs- 制作的视频： [https://space.bilibili.com/125526](https://space.bilibili.com/125526)
 
-DEMO 在线预览 [https://lks.evacgn.cn/](https://lks.evacgn.cn/)
+DEMO 在线预览 [https://lks.evacgn.com/](https://lks.evacgn.com/)
 
 ## 图片预览
 ![pc_dark](images/pc_dark.png)
