@@ -5,6 +5,11 @@
 
 DEMO 在线预览 [https://lks.evacgn.cn/](https://lks.evacgn.cn/)
 
+## 图片预览
+![pc_dark](images/pc_dark.png)
+
+![phone_light](images/phone_light.png)
+
 ## 项目构建
 ```
 git clone git@github.com:BianTan/lks.git
